@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StepEdge — New Season Drop | Exclusive Footwear</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- ═══════════════════════════════════════════════
+       GTM — Google Tag Manager (Head snippet)
+       Replace GTM-XXXXXXX with your real container ID
+       when you set up your GTM account at tagmanager.google.com
+  ════════════════════════════════════════════════ -->
+  <!-- (GTM_HEAD_SNIPPET_HERE) -->
+  <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
+
+  <style>
+    /* ── DESIGN TOKENS (matching Inspirito brand) ── */
+    :root {
+      --navy:       #00416A;
+      --navy-dark:  #002845;
+      --orange:     #F58220;
+      --orange-dk:  #d46d1a;
+      --white:      #ffffff;
+      --off-white:  #F7F5F2;
+      --gray:       #8a8a8a;
+      --text:       #1a1a1a;
+      --border:     #e8e4df;
+
+      --font-head: 'Barlow Condensed', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--off-white);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── INTENT BADGE (floating — for demo visibility) ── */
+    #intent-badge {
+      position: fixed;
+      top: 16px; right: 16px;
+      background: var(--navy-dark);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 30px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      z-index: 9999;
+      display: flex; align-items: center; gap: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+      transition: all 0.4s ease;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    #intent-badge .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #aaa;
+      transition: background 0.4s;
+    }
+    #intent-badge.cold .dot { background: #5bc0eb; }
+    #intent-badge.warm .dot { background: var(--orange); box-shadow: 0 0 6px var(--orange); }
+    #intent-badge.hot  .dot { background: #e74c3c; box-shadow: 0 0 8px #e74c3c; animation: pulse 1s infinite; }
+
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 60px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+    }
+    .nav-logo {
+      font-family: var(--font-head);
+      font-size: 1.6rem; font-weight: 900;
+      color: var(--white);
+      letter-spacing: 2px;
+    }
+    .nav-logo span { color: var(--orange); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--orange); }
+    .nav-cta {
+      background: var(--orange);
+      color: #fff !important;
+      padding: 8px 20px;
+      border-radius: 4px;
+      font-weight: 600 !important;
+    }
+    @media(max-width:600px){ .nav-links { display: none; } }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 92vh;
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 60%, #005a8e 100%);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 60px 8%;
+      gap: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(245,130,32,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    /* Diagonal graphic element */
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      border: 40px solid rgba(245,130,32,0.08);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-text { position: relative; z-index: 2; }
+    .hero-eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--orange);
+      border-bottom: 2px solid var(--orange);
+      padding-bottom: 4px;
+      margin-bottom: 24px;
+    }
+    .hero-title {
+      font-family: var(--font-head);
+      font-size: clamp(3.5rem, 7vw, 6.5rem);
+      font-weight: 900;
+      line-height: 0.92;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      margin-bottom: 28px;
+    }
+    .hero-title .accent { color: var(--orange); }
+    .hero-sub {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.70);
+      max-width: 440px;
+      margin-bottom: 36px;
+    }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--orange);
+      color: #fff;
+      padding: 14px 32px;
+      border: none;
+      border-radius: 4px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      transition: all 0.25s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--orange-dk); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(245,130,32,0.35); }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      padding: 14px 32px;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      border-radius: 4px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--orange); color: var(--orange); }
+
+    /* Hero image side */
+    .hero-visual {
+      position: relative; z-index: 2;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .shoe-frame {
+      width: 100%; max-width: 480px;
+      aspect-ratio: 4/3;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .shoe-frame::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, rgba(245,130,32,0.08), transparent 70%);
+    }
+    .shoe-svg-wrap {
+      font-size: 7rem;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+    .shoe-tag {
+      position: absolute; top: 16px; left: 16px;
+      background: var(--orange);
+      color: #fff;
+      font-size: 0.7rem; font-weight: 700;
+      padding: 4px 10px; border-radius: 3px;
+      letter-spacing: 1px; text-transform: uppercase;
+    }
+    .shoe-price {
+      position: absolute; bottom: 16px; right: 16px;
+      color: #fff;
+      font-family: var(--font-head);
+      font-size: 2rem; font-weight: 900;
+    }
+    .shoe-price span { font-size: 1rem; opacity: 0.7; text-decoration: line-through; margin-right: 6px; }
+
+    .trust-strip {
+      position: absolute; bottom: -1px; left: 0; right: 0;
+      background: rgba(0,0,0,0.2);
+      backdrop-filter: blur(6px);
+      display: flex; justify-content: center; gap: 40px;
+      padding: 14px 5%;
+    }
+    .trust-item { color: rgba(255,255,255,0.8); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.3px; display:flex; align-items:center; gap:6px; }
+
+    @media(max-width:768px) {
+      .hero { grid-template-columns: 1fr; padding: 40px 6%; min-height: auto; }
+      .hero-visual { display: none; }
+    }
+
+    /* ── SECTION: PRODUCTS ── */
+    .section { padding: 80px 8%; }
+    .section-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--orange);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800; color: var(--navy);
+      text-transform: uppercase;
+      line-height: 1.05;
+      margin-bottom: 48px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+    .product-card {
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .product-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,65,106,0.12); }
+    .product-img {
+      background: linear-gradient(135deg, #f0f0f0, #e0e8ef);
+      height: 200px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4.5rem;
+      position: relative;
+    }
+    .product-badge {
+      position: absolute; top: 12px; right: 12px;
+      background: var(--navy);
+      color: #fff;
+      font-size: 0.65rem; font-weight: 700;
+      padding: 3px 8px; border-radius: 3px;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .product-badge.sale { background: #e74c3c; }
+    .product-info { padding: 16px 18px 20px; }
+    .product-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 4px; color: var(--text); }
+    .product-sub { font-size: 0.78rem; color: var(--gray); margin-bottom: 12px; }
+    .product-footer { display: flex; justify-content: space-between; align-items: center; }
+    .product-price { font-family: var(--font-head); font-size: 1.4rem; font-weight: 800; color: var(--navy); }
+    .product-price .old { font-size: 0.85rem; color: var(--gray); text-decoration: line-through; margin-right: 4px; font-weight: 400; font-family: var(--font-body); }
+    .add-btn {
+      background: var(--orange);
+      color: #fff;
+      border: none; padding: 8px 16px;
+      border-radius: 4px; font-size: 0.78rem; font-weight: 700;
+      cursor: pointer; transition: all 0.2s; letter-spacing: 0.3px;
+    }
+    .add-btn:hover { background: var(--orange-dk); }
+
+    /* ── SECTION: WHY US ── */
+    .why-section {
+      background: var(--navy);
+      padding: 80px 8%;
+      clip-path: polygon(0 5%, 100% 0%, 100% 95%, 0% 100%);
+      margin: 20px 0;
+    }
+    .why-section .section-title { color: var(--white); }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; }
+    .why-card {
+      text-align: center;
+      padding: 32px 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      transition: all 0.3s;
+    }
+    .why-card:hover { border-color: var(--orange); background: rgba(245,130,32,0.06); }
+    .why-icon { font-size: 2.4rem; margin-bottom: 16px; display: block; }
+    .why-title { color: var(--white); font-weight: 700; font-size: 1rem; margin-bottom: 8px; }
+    .why-desc { color: rgba(255,255,255,0.55); font-size: 0.83rem; line-height: 1.6; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .testi-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+    }
+    .stars { color: #f0a500; font-size: 0.9rem; margin-bottom: 12px; letter-spacing: 2px; }
+    .testi-text { font-size: 0.88rem; line-height: 1.7; color: #444; margin-bottom: 16px; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 10px; }
+    .testi-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy), var(--orange));
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 700; font-size: 0.85rem;
+    }
+    .testi-name { font-size: 0.85rem; font-weight: 600; }
+    .testi-loc { font-size: 0.72rem; color: var(--gray); }
+
+    /* ── LEAD FORM ── */
+    #lead-form-section {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+      padding: 80px 8%;
+      text-align: center;
+    }
+    #lead-form-section .section-title { color: var(--white); margin-bottom: 12px; }
+    .form-subtitle { color: rgba(255,255,255,0.65); font-size: 1rem; margin-bottom: 40px; line-height: 1.6; }
+
+    .lead-form {
+      max-width: 560px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 36px;
+      backdrop-filter: blur(8px);
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; text-align: left; }
+    .form-group label { font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.7); letter-spacing: 0.3px; }
+    .form-group input,
+    .form-group select {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 5px;
+      padding: 11px 14px;
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .form-group input::placeholder { color: rgba(255,255,255,0.35); }
+    .form-group input:focus,
+    .form-group select:focus { border-color: var(--orange); }
+    .form-group select option { background: var(--navy-dark); color: #fff; }
+    .form-full { grid-column: 1 / -1; }
+    .form-submit {
+      width: 100%;
+      background: var(--orange);
+      color: #fff;
+      border: none;
+      padding: 16px;
+      border-radius: 5px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+      letter-spacing: 0.5px;
+      transition: all 0.25s;
+    }
+    .form-submit:hover { background: var(--orange-dk); transform: translateY(-2px); }
+    .form-note { color: rgba(255,255,255,0.4); font-size: 0.72rem; margin-top: 14px; }
+
+    .success-msg {
+      display: none;
+      background: rgba(39,174,96,0.15);
+      border: 1px solid rgba(39,174,96,0.4);
+      border-radius: 8px;
+      padding: 24px;
+      color: #2ecc71;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy-dark);
+      padding: 28px 8%;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-brand { font-family: var(--font-head); font-size: 1.2rem; font-weight: 900; color: #fff; letter-spacing: 2px; }
+    .footer-brand span { color: var(--orange); }
+    .footer-note { color: rgba(255,255,255,0.35); font-size: 0.75rem; }
+    .powered-by {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.25);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 4px 10px; border-radius: 3px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── SCROLL INDICATOR ── */
+    #scroll-progress {
+      position: fixed; top: 0; left: 0;
+      height: 3px; background: var(--orange);
+      z-index: 9998; width: 0%;
+      transition: width 0.1s linear;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- GTM noscript — place immediately after opening <body> tag -->
+  <!-- (GTM_BODY_SNIPPET_HERE) -->
+  <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+
+  <!-- Scroll progress bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- Intent badge (demo overlay — shows ML score live) -->
+  <div id="intent-badge">
+    <div class="dot"></div>
+    <span id="badge-label">Scoring...</span>
+  </div>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <div class="nav-logo">STEP<span>EDGE</span></div>
+    <ul class="nav-links">
+      <li><a href="#products">Collection</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#lead-form-section" class="nav-cta">Get Offer</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-text">
+      <span class="hero-eyebrow">🔥 New Season Drop — Limited Stock</span>
+      <h1 class="hero-title">
+        WALK<br/>
+        YOUR<br/>
+        <span class="accent">EDGE.</span>
+      </h1>
+      <p class="hero-sub">
+        Premium footwear engineered for streets that don't sleep.
+        Up to 40% off this season — exclusive offer for Instagram followers.
+      </p>
+      <div class="hero-btns">
+        <a href="#lead-form-section" class="btn-primary" id="hero-cta">Claim My Offer →</a>
+        <a href="#products" class="btn-outline">Browse Collection</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="shoe-frame">
+        <span class="shoe-tag">New Drop</span>
+        <div class="shoe-svg-wrap">👟</div>
+        <div class="shoe-price"><span>₹4,999</span>₹2,999</div>
+      </div>
+    </div>
+
+    <div class="trust-strip">
+      <div class="trust-item">✅ Free Shipping above ₹999</div>
+      <div class="trust-item">🔄 7-Day Easy Returns</div>
+      <div class="trust-item">⭐ 4.8/5 from 2,400+ reviews</div>
+      <div class="trust-item">🚚 Pan-India Delivery</div>
+    </div>
+  </section>
+
+  <!-- ── PRODUCTS ── -->
+  <section class="section" id="products">
+    <div class="section-label">Featured Collection</div>
+    <div class="section-title">THIS SEASON'S<br/>BEST SELLERS</div>
+
+    <div class="products-grid">
+      <div class="product-card" onclick="trackProductClick('Urban Runner Pro')">
+        <div class="product-img">
+          👟
+          <span class="product-badge sale">−40%</span>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Urban Runner Pro</div>
+          <div class="product-sub">Men's | Sizes 6–12 | 4 colours</div>
+          <div class="product-footer">
+            <div class="product-price"><span class="old">₹4,999</span>₹2,999</div>
+            <button class="add-btn" onclick="trackCTA('add_to_cart','Urban Runner Pro')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" onclick="trackProductClick('Street Glide V2')">
+        <div class="product-img" style="background:linear-gradient(135deg,#f5efe8,#e8ddd0)">
+          👠
+          <span class="product-badge">New</span>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Street Glide V2</div>
+          <div class="product-sub">Women's | Sizes 4–10 | 6 colours</div>
+          <div class="product-footer">
+            <div class="product-price"><span class="old">₹3,999</span>₹2,499</div>
+            <button class="add-btn" onclick="trackCTA('add_to_cart','Street Glide V2')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" onclick="trackProductClick('TrailBlazer X')">
+        <div class="product-img" style="background:linear-gradient(135deg,#e8f0e8,#d0e0d5)">
+          🥾
+          <span class="product-badge">Bestseller</span>
+        </div>
+        <div class="product-info">
+          <div class="product-name">TrailBlazer X</div>
+          <div class="product-sub">Unisex | Sizes 5–13 | 3 colours</div>
+          <div class="product-footer">
+            <div class="product-price"><span class="old">₹5,499</span>₹3,499</div>
+            <button class="add-btn" onclick="trackCTA('add_to_cart','TrailBlazer X')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" onclick="trackProductClick('Cloud Step Lite')">
+        <div class="product-img" style="background:linear-gradient(135deg,#eaeaf5,#d5d5ee)">
+          👡
+          <span class="product-badge sale">−30%</span>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Cloud Step Lite</div>
+          <div class="product-sub">Women's | Sizes 4–9 | 5 colours</div>
+          <div class="product-footer">
+            <div class="product-price"><span class="old">₹2,999</span>₹2,099</div>
+            <button class="add-btn" onclick="trackCTA('add_to_cart','Cloud Step Lite')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY US ── -->
+  <section class="why-section" id="why">
+    <div class="section-label" style="color:var(--orange)">Why StepEdge</div>
+    <div class="section-title">BUILT FOR<br/>THOSE WHO MOVE</div>
+    <div class="why-grid">
+      <div class="why-card">
+        <span class="why-icon">🏭</span>
+        <div class="why-title">Direct-to-Consumer</div>
+        <div class="why-desc">No middlemen. Factory prices delivered to your door. Save 30–40% vs retail.</div>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🧵</span>
+        <div class="why-title">Premium Materials</div>
+        <div class="why-desc">Breathable mesh, memory foam insoles, and anti-slip rubber soles engineered to last.</div>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">📦</span>
+        <div class="why-title">48h Dispatch</div>
+        <div class="why-desc">Every order ships within 48 hours. Real-time tracking from warehouse to doorstep.</div>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">💳</span>
+        <div class="why-title">Pay on Delivery</div>
+        <div class="why-desc">Not comfortable paying online? No problem — Cash on Delivery available everywhere.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ── -->
+  <section class="section" id="reviews">
+    <div class="section-label">Customer Reviews</div>
+    <div class="section-title">2,400+ HAPPY<br/>STEPPERS</div>
+    <div class="testimonials">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <div class="testi-text">"Ordered the Urban Runner Pro on Tuesday, got it Thursday. Quality is insane for the price — wearing them daily now."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">RK</div>
+          <div><div class="testi-name">Rahul K.</div><div class="testi-loc">Bengaluru, Karnataka</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <div class="testi-text">"The Street Glide fits perfectly and looks even better in person than in photos. Instagram ad brought me here and I don't regret it."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">PS</div>
+          <div><div class="testi-name">Priya S.</div><div class="testi-loc">Mumbai, Maharashtra</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★☆</div>
+        <div class="testi-text">"Wore the TrailBlazer X on a 15km trek. Zero blisters, solid grip. Will definitely order again — next time the Urban ones."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">AM</div>
+          <div><div class="testi-name">Arjun M.</div><div class="testi-loc">Pune, Maharashtra</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── LEAD CAPTURE FORM ── -->
+  <section id="lead-form-section">
+    <div class="section-label" style="color:var(--orange)">Exclusive Offer</div>
+    <div class="section-title">GET 40% OFF<br/>YOUR FIRST ORDER</div>
+    <p class="form-subtitle">Fill in your details and our team will send your exclusive discount code within 24 hours.</p>
+
+    <div class="lead-form">
+      <div id="form-fields">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name *</label>
+            <input type="text" id="f-fname" placeholder="Rahul" required />
+          </div>
+          <div class="form-group">
+            <label>Last Name *</label>
+            <input type="text" id="f-lname" placeholder="Kumar" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" id="f-phone" placeholder="+91 98765 43210" required />
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="f-email" placeholder="you@example.com" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>City</label>
+            <input type="text" id="f-city" placeholder="Bengaluru" />
+          </div>
+          <div class="form-group">
+            <label>Interested In</label>
+            <select id="f-interest">
+              <option value="">Select category</option>
+              <option>Men's Footwear</option>
+              <option>Women's Footwear</option>
+              <option>Sports / Trail</option>
+              <option>All categories</option>
+            </select>
+          </div>
+        </div>
+        <button class="form-submit" id="form-submit-btn" onclick="submitLead()">
+          Send Me My Discount Code →
+        </button>
+        <p class="form-note">🔒 Your data is safe. We will never spam or share your details.</p>
+      </div>
+
+      <div class="success-msg" id="success-msg">
+        ✅ Thank you! Your exclusive 40% discount code is on its way.<br/>
+        <span style="font-size:0.85rem;font-weight:400;opacity:0.8">Check your phone / email within 24 hours.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-brand">STEP<span>EDGE</span></div>
+    <div class="footer-note">© 2025 StepEdge. Demo landing page for research purposes.</div>
+    <div class="powered-by">POWERED BY INSPIRITO</div>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       BEHAVIORAL TRACKING ENGINE
+       AI-Driven Performance Marketing Engine | Inspirito
+       M.Tech Project — Phase 2
+
+       This script captures all micro-interactions and sends a
+       structured session payload to the Flask API for ML scoring.
+
+       CONFIG: Set API_ENDPOINT to your Flask server URL.
+  ════════════════════════════════════════════════════════════ -->
+  <script>
+    // ── CONFIG ──────────────────────────────────────────────
+    const API_ENDPOINT = 'http://127.0.0.1:5000/api/score-session';
+    // When deployed: replace with your Render/Railway URL
+    // e.g. 'https://inspirito-engine.onrender.com/api/score-session'
+
+    const SESSION_ID = 'SES_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
+    const SESSION_START = Date.now();
+
+    // ── SESSION STATE ────────────────────────────────────────
+    let state = {
+      session_id:            SESSION_ID,
+      traffic_source:        getTrafficSource(),
+      landing_page:          'shoes_collection',
+      device_type:           getDeviceType(),
+      scroll_depth_pct:      0,
+      time_on_page_sec:      0,
+      cta_clicks:            0,
+      product_image_clicks:  0,
+      pages_visited:         1,
+      form_interaction:      0,
+      form_submitted:        0,
+      bounced:               1,         // assume bounce until proven otherwise
+      is_return_visitor:     getCookie('rv') === '1' ? 1 : 0,
+      previous_sessions:     parseInt(getCookie('ps') || '0'),
+      days_since_last_visit: getDaysSinceLast(),
+      wishlist_add:          0,
+      chat_opened:           0,
+      video_watch_pct:       0,
+      ad_format:             'reel',
+      campaign_type:         'awareness',
+      keyword_intent:        'medium',
+      geographic_tier:       'metro',
+      hour_of_day:           new Date().getHours(),
+      day_of_week:           ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][new Date().getDay()],
+      is_weekend:            [0,6].includes(new Date().getDay()) ? 1 : 0,
+      is_peak_hour:          (new Date().getHours() >= 18 && new Date().getHours() <= 22) ? 1 : 0,
+      session_month:         new Date().getMonth() + 1,
+      connection_type:       getConnectionType(),
+      browser_type:          getBrowserType(),
+      os_type:               getOSType(),
+      page_load_time_sec:    0,
+      ad_blocker:            0,
+      screen_resolution:     window.screen.width + 'x' + window.screen.height,
+      ad_spend_per_session_inr: 18.5,   // simulated
+      ad_ctr_pct:            2.8,
+      quality_score:         7,
+      impression_share_pct:  60.0,
+      cpc_inr:               12.0,
+    };
+
+    // ── UTILITY FUNCTIONS ────────────────────────────────────
+    function getCookie(name) {
+      const m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+      return m ? m.pop() : '';
+    }
+    function setCookie(name, val, days) {
+      const d = new Date();
+      d.setTime(d.getTime() + days * 864e5);
+      document.cookie = name + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+    }
+    function getDaysSinceLast() {
+      const last = getCookie('lv');
+      if (!last) return 999;
+      return Math.floor((Date.now() - parseInt(last)) / 864e5);
+    }
+    function getTrafficSource() {
+      const ref = document.referrer;
+      const utm = new URLSearchParams(window.location.search).get('utm_source');
+      if (utm) return utm;
+      if (ref.includes('instagram')) return 'instagram_ad';
+      if (ref.includes('google'))    return 'google_search_ad';
+      if (ref.includes('facebook'))  return 'facebook_ad';
+      if (ref === '')                return 'direct';
+      return 'referral';
+    }
+    function getDeviceType() {
+      const ua = navigator.userAgent;
+      if (/tablet|ipad/i.test(ua)) return 'tablet';
+      if (/mobile|android|iphone/i.test(ua)) return 'mobile';
+      return 'desktop';
+    }
+    function getConnectionType() {
+      const conn = navigator.connection || navigator.mozConnection;
+      if (!conn) return '4g';
+      return conn.effectiveType || '4g';
+    }
+    function getBrowserType() {
+      const ua = navigator.userAgent;
+      if (ua.includes('Chrome') && !ua.includes('Edge')) return 'chrome';
+      if (ua.includes('Safari') && !ua.includes('Chrome')) return 'safari';
+      if (ua.includes('Firefox')) return 'firefox';
+      if (ua.includes('Edge')) return 'edge';
+      return 'other';
+    }
+    function getOSType() {
+      const ua = navigator.userAgent;
+      if (ua.includes('Android')) return 'android';
+      if (ua.includes('iPhone') || ua.includes('iPad')) return 'ios';
+      if (ua.includes('Windows')) return 'windows';
+      if (ua.includes('Mac')) return 'mac';
+      return 'linux';
+    }
+
+    // ── TRACK PAGE LOAD TIME ─────────────────────────────────
+    window.addEventListener('load', () => {
+      if (performance.timing) {
+        state.page_load_time_sec = ((performance.timing.loadEventEnd - performance.timing.navigationStart) / 1000).toFixed(2);
+      }
+      // Mark as return visitor
+      setCookie('rv', '1', 365);
+      setCookie('ps', (parseInt(getCookie('ps') || '0') + 1).toString(), 365);
+      setCookie('lv', Date.now().toString(), 365);
+    });
+
+    // ── SCROLL DEPTH TRACKING ────────────────────────────────
+    let maxScroll = 0;
+    const scrollMilestones = [10, 25, 50, 75, 90, 100];
+    const firedMilestones = new Set();
+
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = Math.min(100, Math.round((scrolled / total) * 100));
+
+      if (pct > maxScroll) {
+        maxScroll = pct;
+        state.scroll_depth_pct = pct;
+        document.getElementById('scroll-progress').style.width = pct + '%';
+
+        // If user scrolled past 15% — not a bounce
+        if (pct >= 15) state.bounced = 0;
+
+        // Fire GTM events at milestones
+        scrollMilestones.forEach(m => {
+          if (pct >= m && !firedMilestones.has(m)) {
+            firedMilestones.add(m);
+            pushGTMEvent('scroll_milestone', { depth_pct: m });
+          }
+        });
+      }
+    });
+
+    // ── DWELL TIME TRACKING ──────────────────────────────────
+    setInterval(() => {
+      state.time_on_page_sec = Math.floor((Date.now() - SESSION_START) / 1000);
+      // Auto-score every 30 seconds
+      if (state.time_on_page_sec > 0 && state.time_on_page_sec % 30 === 0) {
+        scoreAndUpdateBadge();
+      }
+    }, 1000);
+
+    // ── CTA & INTERACTION TRACKING ───────────────────────────
+    function trackCTA(action, label) {
+      state.cta_clicks++;
+      state.bounced = 0;
+      pushGTMEvent('cta_click', { action, label });
+      scoreAndUpdateBadge();
+    }
+
+    function trackProductClick(name) {
+      state.product_image_clicks++;
+      state.bounced = 0;
+      pushGTMEvent('product_view', { product_name: name });
+      scoreAndUpdateBadge();
+    }
+
+    // Track all CTA button clicks automatically
+    document.getElementById('hero-cta').addEventListener('click', () => {
+      trackCTA('hero_cta_click', 'Claim My Offer');
+    });
+
+    // ── FORM INTERACTION TRACKING ────────────────────────────
+    document.querySelectorAll('.lead-form input, .lead-form select').forEach(el => {
+      el.addEventListener('focus', () => {
+        if (!state.form_interaction) {
+          state.form_interaction = 1;
+          state.bounced = 0;
+          pushGTMEvent('form_start', {});
+          scoreAndUpdateBadge();
+        }
+      });
+    });
+
+    // ── FORM SUBMISSION ──────────────────────────────────────
+    function submitLead() {
+      const fname = document.getElementById('f-fname').value.trim();
+      const phone = document.getElementById('f-phone').value.trim();
+      if (!fname || !phone) {
+        alert('Please fill in your name and phone number.');
+        return;
+      }
+
+      state.form_submitted = 1;
+      state.bounced = 0;
+      state.cta_clicks++;
+
+      pushGTMEvent('form_submit', {
+        city: document.getElementById('f-city').value,
+        interest: document.getElementById('f-interest').value,
+      });
+
+      // Final scoring on submit
+      scoreAndUpdateBadge();
+
+      // Send complete session to API
+      sendSessionToAPI(true);
+
+      // Show success
+      document.getElementById('form-fields').style.display = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+    }
+
+    // ── VISIBILITY / EXIT DETECTION ──────────────────────────
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden') {
+        scoreAndUpdateBadge();
+        sendSessionToAPI(false);
+      }
+    });
+    window.addEventListener('beforeunload', () => {
+      sendSessionToAPI(false);
+    });
+
+    // ── GTM DATALAYER PUSH ───────────────────────────────────
+    window.dataLayer = window.dataLayer || [];
+    function pushGTMEvent(eventName, params) {
+      window.dataLayer.push({
+        event: eventName,
+        session_id: SESSION_ID,
+        scroll_depth: state.scroll_depth_pct,
+        time_on_page: state.time_on_page_sec,
+        ...params
+      });
+      console.log('[GTM]', eventName, params);
+    }
+
+    // ── LEAD SCORE BADGE UPDATE (LOCAL HEURISTIC) ────────────
+    // Fast local scoring while waiting for API response
+    function getLocalScore() {
+      let score = 0;
+      score += (state.scroll_depth_pct / 100) * 0.25;
+      score += Math.min(state.time_on_page_sec / 300, 1) * 0.20;
+      score += Math.min(state.cta_clicks / 3, 1) * 0.15;
+      score += Math.min(state.product_image_clicks / 5, 1) * 0.12;
+      score += state.form_interaction * 0.15;
+      score += state.form_submitted * 0.13;
+      return score;
+    }
+
+    function scoreAndUpdateBadge() {
+      const score = getLocalScore();
+      const badge = document.getElementById('intent-badge');
+      const label = document.getElementById('badge-label');
+
+      badge.className = '';
+      if (score < 0.30) {
+        badge.classList.add('cold');
+        label.textContent = '🔵 Cold Lead';
+      } else if (score < 0.62) {
+        badge.classList.add('warm');
+        label.textContent = '🟠 Warm Lead';
+      } else {
+        badge.classList.add('hot');
+        label.textContent = '🔴 Hot Lead';
+      }
+    }
+
+    // ── SEND SESSION TO FLASK API ────────────────────────────
+    function sendSessionToAPI(isFinal) {
+      const payload = {
+        ...state,
+        time_on_page_sec: Math.floor((Date.now() - SESSION_START) / 1000),
+        is_final: isFinal,
+        timestamp: new Date().toISOString(),
+      };
+
+      // Use sendBeacon for exit events (doesn't block page close)
+      if (!isFinal && navigator.sendBeacon) {
+        const blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
+        navigator.sendBeacon(API_ENDPOINT, blob);
+        return;
+      }
+
+      // Regular fetch for non-exit events
+      fetch(API_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        keepalive: true,
+      })
+      .then(r => r.json())
+      .then(data => {
+        console.log('[API] Score received:', data);
+        // Update badge with actual ML score from server
+        if (data.lead_score_label) {
+          const badge = document.getElementById('intent-badge');
+          const lbl   = document.getElementById('badge-label');
+          badge.className = '';
+          if (data.lead_score_label === 'Hot') {
+            badge.classList.add('hot');
+            lbl.textContent = '🔴 Hot Lead (ML)';
+          } else if (data.lead_score_label === 'Warm') {
+            badge.classList.add('warm');
+            lbl.textContent = '🟠 Warm Lead (ML)';
+          } else {
+            badge.classList.add('cold');
+            lbl.textContent = '🔵 Cold Lead (ML)';
+          }
+        }
+      })
+      .catch(err => console.warn('[API] Offline — using local score', err));
+    }
+
+    // ── INITIAL SCORE ────────────────────────────────────────
+    setTimeout(scoreAndUpdateBadge, 2000);
+
+    // ── INITIAL GTM EVENT ────────────────────────────────────
+    pushGTMEvent('page_view', {
+      traffic_source: state.traffic_source,
+      device_type: state.device_type,
+      landing_page: state.landing_page,
+    });
+
+    console.log('%c🎯 INSPIRITO TRACKING ENGINE ACTIVE', 'color:#F58220;font-weight:bold;font-size:14px');
+    console.log('%cSession ID: ' + SESSION_ID, 'color:#00416A');
+  </script>
+
+</body>
+</html>
