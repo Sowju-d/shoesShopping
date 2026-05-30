@@ -9,18 +9,34 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-  <!-- ═══════════════════════════════════════════════
-       GTM — Google Tag Manager (Head snippet)
-       Replace GTM-XXXXXXX with your real container ID
-       when you set up your GTM account at tagmanager.google.com
-  ════════════════════════════════════════════════ -->
-   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KWSV54JX');</script>
-<!-- End Google Tag Manager -->
+  <!-- ═══════════════════════════════════════════════════════════
+       INSPIRITO CONFIG — CHANGE ONLY THESE 6 LINES PER CLIENT
+  ════════════════════════════════════════════════════════════ -->
+  <script>
+    window.INSPIRITO_CONFIG = {
+      GTM_ID:        'GTM-KWSV54JX',
+      CLIENT_ID:     'CLIENT001',
+      CAMPAIGN_NAME: 'shoes_summer_2025',
+      LANDING_PAGE:  'shoes_collection',
+      AD_FORMAT:     'reel',
+      API_ENDPOINT:  'https://inspirito-engine.onrender.com/api/score-session',
+    };
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),
+          dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer', window.INSPIRITO_CONFIG.GTM_ID);
+  </script>
+  <!-- End Google Tag Manager -->
   <style>
     /* ── DESIGN TOKENS (matching Inspirito brand) ── */
     :root {
@@ -459,18 +475,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       transition: width 0.1s linear;
     }
   </style>
- 
 </head>
 
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWSV54JX"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  <!-- GTM noscript — place immediately after opening <body> tag -->
-  <!-- (GTM_BODY_SNIPPET_HERE) -->
-  <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="" id="gtm-noscript"
+      height="0" width="0" style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+  <script>
+    document.getElementById('gtm-noscript').src =
+      'https://www.googletagmanager.com/ns.html?id=' +
+      window.INSPIRITO_CONFIG.GTM_ID;
+  </script>
+  <!-- End Google Tag Manager (noscript) -->
 
   <!-- Scroll progress bar -->
   <div id="scroll-progress"></div>
@@ -676,7 +696,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="form-row">
           <div class="form-group">
             <label>Phone Number *</label>
-            <input type="tel" id="f-phone" placeholder="+91 98765 43210" required />
+            <input type="tel" id="f-phone" placeholder="+91 9353107696" required />
           </div>
           <div class="form-group">
             <label>Email Address</label>
@@ -731,10 +751,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        CONFIG: Set API_ENDPOINT to your Flask server URL.
   ════════════════════════════════════════════════════════════ -->
   <script>
-    // ── CONFIG ──────────────────────────────────────────────
-    const API_ENDPOINT = 'http://127.0.0.1:5000/api/score-session';
-    // When deployed: replace with your Render/Railway URL
-    // e.g. 'https://inspirito-engine.onrender.com/api/score-session'
+    // ── CONFIG — reads from INSPIRITO_CONFIG set in <head> ──────
+    const API_ENDPOINT = window.INSPIRITO_CONFIG.API_ENDPOINT;
 
     const SESSION_ID = 'SES_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
     const SESSION_START = Date.now();
@@ -779,6 +797,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       quality_score:         7,
       impression_share_pct:  60.0,
       cpc_inr:               12.0,
+
+      // ── CLIENT IDENTIFICATION ── links session to correct client in DB
+      client_id:             window.INSPIRITO_CONFIG.CLIENT_ID,
+      campaign_name:         window.INSPIRITO_CONFIG.CAMPAIGN_NAME,
+      landing_page:          window.INSPIRITO_CONFIG.LANDING_PAGE,
+      ad_format:             window.INSPIRITO_CONFIG.AD_FORMAT,
     };
 
     // ── UTILITY FUNCTIONS ────────────────────────────────────
@@ -876,9 +900,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     // ── DWELL TIME TRACKING ──────────────────────────────────
     setInterval(() => {
       state.time_on_page_sec = Math.floor((Date.now() - SESSION_START) / 1000);
-      // Auto-score every 30 seconds
+      // Every 30 seconds: update badge AND send session to Flask
+      // This is what makes the dashboard update while user is still on page
       if (state.time_on_page_sec > 0 && state.time_on_page_sec % 30 === 0) {
         scoreAndUpdateBadge();
+        sendSessionToAPI(false); // ← CRITICAL: sends data to Flask every 30s
       }
     }, 1000);
 
@@ -888,6 +914,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       state.bounced = 0;
       pushGTMEvent('cta_click', { action, label });
       scoreAndUpdateBadge();
+      sendSessionToAPI(false); // send updated state to Flask on every CTA click
     }
 
     function trackProductClick(name) {
@@ -895,6 +922,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       state.bounced = 0;
       pushGTMEvent('product_view', { product_name: name });
       scoreAndUpdateBadge();
+      sendSessionToAPI(false); // send updated state to Flask on every product click
     }
 
     // Track all CTA button clicks automatically
@@ -910,6 +938,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           state.bounced = 0;
           pushGTMEvent('form_start', {});
           scoreAndUpdateBadge();
+          sendSessionToAPI(false); // user started filling form — send to Flask
         }
       });
     });
@@ -1048,11 +1077,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     setTimeout(scoreAndUpdateBadge, 2000);
 
     // ── INITIAL GTM EVENT ────────────────────────────────────
+    // Push client info to GTM dataLayer so GA4 can filter by client
+    window.dataLayer.push({
+      'client_id':     window.INSPIRITO_CONFIG.CLIENT_ID,
+      'campaign_name': window.INSPIRITO_CONFIG.CAMPAIGN_NAME,
+      'landing_page':  window.INSPIRITO_CONFIG.LANDING_PAGE,
+    });
+
     pushGTMEvent('page_view', {
       traffic_source: state.traffic_source,
-      device_type: state.device_type,
-      landing_page: state.landing_page,
+      device_type:    state.device_type,
+      landing_page:   state.landing_page,
+      client_id:      window.INSPIRITO_CONFIG.CLIENT_ID,
     });
+
+    // Send initial session to Flask after 3 seconds (page load)
+    setTimeout(() => sendSessionToAPI(false), 3000);
 
     console.log('%c🎯 INSPIRITO TRACKING ENGINE ACTIVE', 'color:#F58220;font-weight:bold;font-size:14px');
     console.log('%cSession ID: ' + SESSION_ID, 'color:#00416A');
